@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   root "home#index"
 
+  mount ActionCable.server => '/cable'
+
   resources :conversations, only: [:create] do
     member do
       post :close

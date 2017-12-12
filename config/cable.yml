@@ -1,10 +1,11 @@
+production:
+  adapter: redis
+  url: redis://redistogo:9e0bad7e98a30ef9229bd996a272a992@soldierfish.redistogo.com:9252/
+  channel_prefix: chat_production
+
 development:
   adapter: async
 
 test:
   adapter: async
 
-production:
-  adapter: redis
-  url: redis://localhost:6379/1
-  channel_prefix: chat_production
