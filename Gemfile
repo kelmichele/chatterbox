@@ -21,6 +21,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
 gem 'redis', '~>3.2'
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

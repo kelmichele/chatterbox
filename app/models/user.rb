@@ -6,4 +6,8 @@ class User < ApplicationRecord
 
   has_many :messages
   has_many :conversations, foreign_key: :sender_id
+
+  def name
+  	email.split('@')[0]
+	end
 end

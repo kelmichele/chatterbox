@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
-  root "home#index"
+  root 'static_pages#home'
+
+	get 'chatroom', to: 'static_pages#chatroom'
+  get 'home', to: 'home#index'
 
   mount ActionCable.server => '/cable'
 
