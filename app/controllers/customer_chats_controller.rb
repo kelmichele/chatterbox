@@ -1,31 +1,32 @@
 class CustomerChatsController < ApplicationController
-	def create
-	  @customer_chat = customer_chat.get(current_user.id, params[:user_id])
+  skip_before_action :verify_authenticity_token, :only => [:create]
 
-	  # add_to_customer_chats unless conversated?
-	  respond_to do |format|
-	    format.js
-	  end
-	end
+  def create
+    @customer_chat = CustomerChat.get(current_or_guest_user.id, params[:user_id])
 
-	def close
-	  @customer_chat = customer_chat.find(params[:id])
+    add_to_customer_chats unless chatted?
+    respond_to do |format|
+      format.js
+    end
+  end
 
-	  session[:customer_chats].delete(@customer_chat.id)
-	  respond_to do |format|
-	    format.js
-	  end
-	end
+  def close
+    @customer_chat = CustomerChat.find(params[:id])
 
-	private
+    session[:customer_chats].delete(@customer_chat.id)
+    respond_to do |format|
+      format.js
+    end
+  end
 
-	def add_to_customer_chats
-	  session[:customer_chats] ||= []
-	  session[:customer_chats] << @customer_chat.id
-	end
+  private
 
-	# def conversated?
-	#   session[:customer_chats].include?(@customer_chat.id)
-	# end
+  def add_to_customer_chats
+    session[:customer_chats] ||= []
+    session[:customer_chats] << @customer_chat.id
+  end
+
+  def chatted?
+    session[:customer_chats].include?(@customer_chat.id)
+  end
 end
-

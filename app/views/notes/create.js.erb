@@ -1,3 +1,0 @@
-var customer_chat = $('#customer_chats-list').find("[data-customer_chat-id='" + "<%= @customer_chat.id %>" + "']");
-customer_chat.find('.notes-list').find('ul').append("<%= j(render 'notes/note', note: @note, user: current_user) %>");
-customer_chat.find('textarea').val('');

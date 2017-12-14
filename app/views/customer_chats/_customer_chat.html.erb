@@ -1,5 +1,4 @@
 <li class="pers-chat">
-<!-- <li> -->
   <div class="panel panel-default" data-customer_chat-id="<%= customer_chat.id %>">
     <div class="panel-heading">
       <%= link_to customer_chat.opposed_user(user).email, class: 'toggle-window' do %>
@@ -14,7 +13,7 @@
     <div class="panel-body" style="display: none;">
       <div class="notes-list">
         <ul>
-          <%= render 'customer_chats/chat_content', notes: customer_chat.notes, user: user %>
+          <%= render 'customer_chats/customer_chat_content', notes: customer_chat.notes, user: user %>
         </ul>
       </div>
 
