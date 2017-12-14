@@ -1,0 +1,24 @@
+<div class="full" style="background-color: #f2f2f2;">
+  <div class="wrap">
+
+    <div class="col-md-5">
+      <h3 class="panel-title">Lorem Ipsum Bitches</h3>
+      <p>Pri ei minim tacimates antiopam. Duo an omnes solet apeirian. Ei accusamus sadipscing est, saepe nostro iriure mel ei.</p>
+      <p>Mei solum velit deterruisset te. Pertinax molestiae aliquando eu sed, wisi efficiendi ei quo. Ad vis latine.</p>
+      <p>At eos errem legimus incorrupte, quo virtute ceteros molestie ne. Eos ea illud novum appellantur, sed ne vulputate efficiendi.</p>
+      <p>No est tibique commune consequat, mei dictas assentior ea. In has elitr appetere singulis.</p>
+    </div>
+
+    <div class="col-md-6 col-md-offset-1">
+
+      <%= link_to 'Chat With Us', '#', class: 'btn btn-default' %>
+
+      <ul id="customer_chats-list">
+        <% @customer_chats.each do |customer_chat| %>
+          <%= render 'customer_chats/customer_chat', customer_chat: customer_chat, user: current_user %>
+        <% end %>
+      </ul>
+    </div>
+
+  </div>
+</div>

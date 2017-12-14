@@ -1,0 +1,9 @@
+<li class="note-msg">
+  <div class="row">
+    <div class="<%= user.id == note.user_id ? 'note-sent' : 'note-received' %>">
+      <%= note.body %>
+      <br>
+      <small class="stamp"><%= note.created_at %></small>
+    </div>
+  </div>
+</li>

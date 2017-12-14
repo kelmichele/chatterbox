@@ -1,0 +1,13 @@
+var customer_chats = $('#customer_chats-list');
+var customer_chat = customer_chats.find("[data-customer_chat-id='" + "<%= @customer_chat.id %>" + "']");
+
+if (customer_chat.length !== 1) {
+  customer_chats.append("<%= j(render 'customer_chats/customer_chat', customer_chat: @customer_chat, user: current_user) %>");
+  customer_chat = customer_chats.find("[data-customer_chat-id='" + "<%= @customer_chat.id %>" + "']");
+}
+
+customer_chat.find('.panel-body').show();
+
+var notes_list = customer_chat.find('.notes-list');
+var height = notes_list[0].scrollHeight;
+notes_list.scrollTop(height);
