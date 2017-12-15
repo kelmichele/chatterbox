@@ -1,0 +1,7 @@
+<ul id="conversations-list">
+  <% @conversations.each do |conversation| %>
+		<% if conversation.messages.count > 0 %>
+	    <%= render 'conversations/conversation', conversation: conversation, user: current_or_guest_user %>
+	  <% end %>
+	<% end %>
+</ul>

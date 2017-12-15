@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   mount ActionCable.server => '/cable'
 
-  resources :conversations, only: [:create] do
+  resources :conversations, only: [:create, :show] do
     member do
       post :close
     end
