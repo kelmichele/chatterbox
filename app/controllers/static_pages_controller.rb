@@ -1,8 +1,6 @@
 class StaticPagesController < ApplicationController
 
 	def chatroom
-		@all_conversations = Conversation.includes(:recipient, :messages)
-
 		session[:conversations] ||= []
     @users = User.all.where.not(id: current_or_guest_user)
     @conversations = Conversation.includes(:recipient, :messages)

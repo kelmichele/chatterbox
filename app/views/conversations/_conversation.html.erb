@@ -9,11 +9,7 @@ end -->
     <div class="panel-heading">
       <%= link_to conversation.opposed_user(user).name, '', class: 'toggle-window' %> <small>(<%= conversation.id %>)</small>
 
-       <!-- <%= link_to conversation.opposed_user(user).email, class: 'toggle-window' do %> -->
-        <!-- <%= image_tag('chat.png', class:'chat-icon') %>  -->
-        <!-- <span class="ofc-online"><b>Online</b> - Chat with us</span> -->
-        <!-- <div class="btn btn-xs exp">—</div> -->
-       <!-- <% end %> -->
+
 
       <%= link_to "X", close_conversation_path(conversation), class: "btn btn-xs pull-right", remote: true, method: :post %>
     </div>

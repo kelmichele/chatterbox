@@ -22,24 +22,4 @@ class Conversation < ApplicationRecord
     user == recipient ? sender : recipient
   end
 
-  def open_tickets
-  end
-
 end
-
-
-# def ensure_admin
-#   raise Discourse::InvalidAccess.new unless current_user && current_user.admin?
-# end
-
-# def username_is_allowed
-#   if FORBIDDEN_USERNAMES.include?(username)
-#     errors.add(:username, "has been restricted from use.")
-#   end
-# end
-
-# def no_new_users_on_monday
-#   if Time.now.wday == 1
-#     errors.add(:base, "No new users on Mondays.")
-#   end
-# end
