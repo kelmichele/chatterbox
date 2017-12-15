@@ -1,36 +1,35 @@
 <div class="full" style="background-color: #f2f2f2;">
   <div class="wrap">
-
     <div class="row">
+
       <div class="col-md-6 col-md-offset-1">
         <h3><%= boss_admin.id %> &nbsp; / &nbsp; <%= current_or_guest_user.id %></h3>
         <br>
-        <%= render 'conversations/convbox' %>
+        <ul id="conversations-list">
+          <% @conversations.each do |conversation| %>
+
+              <%= render 'conversations/conversation', conversation: conversation, user: current_or_guest_user %>
+
+          <% end %>
+        </ul>
       </div>
 
-      <div class="col-md-3 col-md-offset-1">
-
-        <div class="panel panel-primary">
-          <div class="panel-heading">
-            <h3 class="panel-title">User list</h3>
-          </div>
-          <div class="panel-body">
-            <ul>
-
-              <% if current_or_guest_user.admin? %>
+        <div class="col-md-3">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">User list</h3>
+            </div>
+            <div class="panel-body">
+              <ul>
                 <% @users.each do |user| %>
-                  <br><li><%= link_to user.name, conversations_path(user_id: user), remote: true, method: :post %></li>
+                  <li><%= link_to user.name, conversations_path(user_id: user), remote: true, method: :post %></li>
                 <% end %>
-              <% else %>
-                <li><%= link_to boss_admin.name, conversations_path(user_id: boss_admin), remote: true, method: :post %></li>
-              <% end %>
-
-            </ul>
+              </ul>
+            </div>
           </div>
         </div>
-
       </div>
-    </div>
 
+    </div>
   </div>
 </div>
