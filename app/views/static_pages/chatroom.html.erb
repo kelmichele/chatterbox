@@ -3,8 +3,8 @@
     <div class="row">
 
       <div class="col-md-6 col-md-offset-1">
-        <h3><%= boss_admin.id %> &nbsp; / &nbsp; <%= current_or_guest_user.id %></h3>
-        <br>
+
+
         <ul id="conversations-list">
           <% @conversations.each do |conversation| %>
             <%= render 'conversations/conversation', conversation: conversation, user: current_or_guest_user %>
