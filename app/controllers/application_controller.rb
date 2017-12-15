@@ -27,11 +27,6 @@ class ApplicationController < ActionController::Base
     guest_user if with_retry
 	end
 
-  def admin?
-    current_or_guest_user.try(:admin?)
-  end
-
-
 	private
   def boss_admin
 	  @boss_admin ||= User.find_by(admin: true)

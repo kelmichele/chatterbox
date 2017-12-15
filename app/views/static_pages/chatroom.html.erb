@@ -7,9 +7,7 @@
         <br>
         <ul id="conversations-list">
           <% @conversations.each do |conversation| %>
-
-              <%= render 'conversations/conversation', conversation: conversation, user: current_or_guest_user %>
-
+            <%= render 'conversations/conversation', conversation: conversation, user: current_or_guest_user %>
           <% end %>
         </ul>
       </div>
