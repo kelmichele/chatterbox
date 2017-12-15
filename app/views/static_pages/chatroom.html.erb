@@ -20,12 +20,9 @@
             <div class="panel-body">
               <ul>
 
-                <% if current_or_guest_user.admin? %>
+
                 <% @users.each do |user| %>
                   <br><li><%= link_to user.name, conversations_path(user_id: user), remote: true, method: :post %></li>
-                <% end %>
-                <% else %>
-                  <li><%= link_to boss_admin.name, conversations_path(user_id: boss_admin), remote: true, method: :post %></li>
                 <% end %>
 
               </ul>
