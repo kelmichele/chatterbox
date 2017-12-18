@@ -4,9 +4,11 @@
     <div class="col-md-6 col-md-offset-1">
       <ul id="conversations-list">
         <% @conversations.each do |conversation| %>
-          <!-- <% if conversation.messages.count > 0 %>  -->
+          <% if user_signed_in? && current_user.admin? %>
+            <%= render 'conversations/admin_conversation', conversation: conversation, user: current_or_guest_user %>
+          <% else %>
             <%= render 'conversations/conversation', conversation: conversation, user: current_or_guest_user %>
-          <!-- <% end %>   -->
+          <% end %>
         <% end %>
       </ul>
     </div>
