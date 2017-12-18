@@ -6,7 +6,7 @@
         <% @conversations.each do |conversation| %>
           <!-- <% if conversation.messages.count > 0 %>  -->
             <%= render 'conversations/conversation', conversation: conversation, user: current_or_guest_user %>
-          <!-- <% end %>  -->
+          <!-- <% end %>   -->
         <% end %>
       </ul>
     </div>
@@ -17,21 +17,11 @@
           <h3 class="panel-title">Chat With Us</h3>
         </div>
         <div class="panel-body">
-
-
-          <% unless current_or_guest_user.admin? %>
-
-            <%= link_to boss_admin.name, conversations_path(user_id: boss_admin), remote: true, method: :post %>
-
-          <% else %>
-            <ul>
-              <% @users.each do |user| %>
-                <br><li><%= link_to user.name, conversations_path(user_id: user), remote: true, method: :post %></li>
-              <% end %>
-            </ul>
-
-          <% end %>
-
+          <ul>
+            <% @users.each do |user| %>
+              <br><li><%= link_to user.name, conversations_path(user_id: user), remote: true, method: :post %></li>
+            <% end %>
+          </ul>
         </div>
       </div>
     </div>
