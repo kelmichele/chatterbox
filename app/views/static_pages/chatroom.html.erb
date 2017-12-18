@@ -1,14 +1,12 @@
 <div class="full" style="background-color: #f2f2f2;">
-  <div class="wrap">
+  <div class="wrap <% unless user_signed_in? && current_user.admin? %> customer-side<% end %>">
 
     <div class="col-md-6 col-md-offset-1">
       <ul id="conversations-list">
         <% @conversations.each do |conversation| %>
-          <% if user_signed_in? && current_user.admin? %>
-            <%= render 'conversations/admin_conversation', conversation: conversation, user: current_or_guest_user %>
-          <% else %>
+          <!-- <% if conversation.messages.count > 0 %>  -->
             <%= render 'conversations/conversation', conversation: conversation, user: current_or_guest_user %>
-          <% end %>
+          <!-- <% end %>   -->
         <% end %>
       </ul>
     </div>
