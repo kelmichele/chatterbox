@@ -1,8 +1,8 @@
 class ApplicationController < ActionController::Base
-  # before_action :authenticate_user!
   protect_from_forgery with: :exception
 	helper_method :boss_admin
 	helper_method :current_or_guest_user
+  before_action :opened_conversations_windows
 
 
 	def current_or_guest_user
@@ -26,6 +26,20 @@ class ApplicationController < ActionController::Base
     session[:guest_user_id] = nil
     guest_user if with_retry
 	end
+
+
+	def opened_conversations_windows
+    session[:conversations] ||= []
+    @conversations_windows = Conversation.includes(:recipient, :messages)
+    																		 .find(session[:conversations])
+
+    if current_or_guest_user.admin?
+	    @users = User.all.where.not(id: current_or_guest_user)
+	  else
+	    @users = User.all.where(admin: true)
+    end
+	end
+
 
 	private
   def boss_admin

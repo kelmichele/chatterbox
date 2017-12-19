@@ -30,3 +30,19 @@ class ConversationsController < ApplicationController
     session[:conversations].include?(@conversation.id)
   end
 end
+
+
+
+
+  # def open
+  #   @conversation = Conversation.find(params[:id])
+
+  #   add_to_conversations unless conversated?
+
+  #   respond_to do |format|
+  #     format.js
+  #     # { render partial: '/conversations/open' }
+  #   end
+  # end
+
+

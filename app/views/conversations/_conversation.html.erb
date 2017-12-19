@@ -1,7 +1,11 @@
-<li class="pers-chat">
+<% @recipient = conv_recipient(conversation) %>
+<li class="conversation-window"
+    id="<%= conversation.id %>">
+    <!-- data-conversation-user-name="<%= @recipient.name %>" data-turbolinks-permanent -->
+
   <div class="panel panel-default" data-conversation-id="<%= conversation.id %>">
     <div class="panel-heading">
-      <%= link_to conversation.opposed_user(user).email, '', class: 'toggle-window' %>
+      <%= link_to conversation.opposed_user(user).name, '', class: 'toggle-window', remote: true, method: :post %>
 
       <%= link_to "X", close_conversation_path(conversation), class: "btn btn-xs pull-right", remote: true, method: :post %>
     </div>
@@ -22,3 +26,5 @@
     </div>
   </div>
 </li>
+
+<!-- <span class="contact-name-notif"><%= @recipient.name %></span> -->

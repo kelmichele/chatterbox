@@ -25,7 +25,6 @@ class StaticPagesController < ApplicationController
 	    @users = User.all.where(admin: true)
     end
 
-
     @closed_line = Conversation.where('created_at >= ?', Time.now-3.days)
     @open_line = Conversation.where('created_at <= ?', Time.now-3.days)
 	end

@@ -117,20 +117,20 @@ a:hover {text-decoration: none;}
 // }
 
 
-.livechat {
-  width: 275px;
-  min-height: 30px;
-  position: fixed;
-  bottom: 0px;
-  right: 15px;
-  z-index: 100;
-  text-align: center;
-  background-color: darken($blue, 25%);
-  color:white;
-  padding: 5px 0;
-  .chat-icon {width: 25px; height:auto; margin-right: 5px; }
-  &:hover {color: rgba(white, .7);}
-}
+// .livechat {
+//   width: 275px;
+//   min-height: 30px;
+//   position: fixed;
+//   bottom: 0px;
+//   right: 15px;
+//   z-index: 100;
+//   text-align: center;
+//   background-color: darken($blue, 25%);
+//   color:white;
+//   padding: 5px 0;
+//   .chat-icon {width: 25px; height:auto; margin-right: 5px; }
+//   &:hover {color: rgba(white, .7);}
+// }
 
 .messages-list, .notes-list {
   max-height: 250px;
@@ -159,44 +159,50 @@ a:hover {text-decoration: none;}
 
 .message-msg small.stamp, .note-msg small.stamp {color: red; font-size: 10px;}
 
-.customer-side .pers-chat .panel-default {
-  // width: 275px;
-  // min-height: 30px;
-  // position: fixed;
-  // bottom: 0px;
-  // right: 15px;
-  position: relative;
-  z-index: 101;
-  margin-bottom: 0;
-  border:0;
+// .customer-side .pers-chat,.livechat-box,
+.conversation-window, .new_chat_window, .conversation  {
+  .panel-default {
+    // width: 275px;
+    // min-height: 30px;
+    // position: fixed;
+    // bottom: 0px;
+    // right: 15px;
+    position: relative;
+    z-index: 101;
+    margin-bottom: 0;
+    border:0;
 
-  .panel-body{padding: 5px;}
+    .panel-body{padding: 5px;}
 
-  a {color: white;}
-  .chat-icon {width: 20px; height:auto; margin-right: 3px; margin-bottom: 3px;}
+    a {color: white;}
+    .chat-icon {width: 20px; height:auto; margin-right: 3px; margin-bottom: 3px;}
 
-  .panel-heading {background-color: darken($blue, 25%);
-    text-align: center;
-    color:white;
-    padding: 5px 6px 8px;
-    border: none;
-    &:hover a {color: rgba(white, .7);}
+    .panel-heading {background-color: darken($blue, 25%);
+      text-align: center;
+      color:white;
+      padding: 5px 6px 8px;
+      border: none;
+      &:hover a {color: rgba(white, .7);}
+    }
+    .btn.exp {font-weight: bold; margin-left: 25px;}
+    .btn.pull-right {margin-right: 5px; font-weight: bold;}
+
+    .tab-link {color: black; float: right; font-weight: bold; margin-top: 20px;
+      &:hover {opacity: .7;}
+    }
+
+    &.panel-success {
+      .panel-heading {background-color: #dff0d8; }
+      a {color: $dark; }
+    }
   }
-  .btn.exp {font-weight: bold; margin-left: 25px;}
-  .btn.pull-right {margin-right: 5px; font-weight: bold;}
 
-  .tab-link {color: black; float: right; font-weight: bold; margin-top: 20px;
-    &:hover {opacity: .7;}
-  }
-
-  &.panel-success {
-    .panel-heading {background-color: #dff0d8; }
-    a {color: $dark; }
-  }
+  textarea {resize: none;}
 }
 
-.customer-side .livechat-box {
-  width: 275px;
+// .customer-side .livechat-box,
+.conversation-window, .new_chat_window, .conversation  {
+  width: 320px;
   min-height: 30px;
   position: fixed;
   bottom: 0px;
@@ -209,14 +215,10 @@ a:hover {text-decoration: none;}
   color:white;
   padding-top: 5px;
   border: 1px solid #ddd;
+  list-style-type: none;
   a {color: white;}
   .chat-icon {width: 20px; height:auto; margin-right: 3px; margin-bottom: 3px;}
 }
-
-
-
-
-
 
 
 
@@ -226,3 +228,21 @@ span.off {background-color: red;}
 
 .new_message, .new_note {margin-top:15px; }
 input.btn.btn-success {margin-top:8px;}
+
+
+
+// .messages-list {
+//   z-index: 1;
+//   min-height: 300px;
+//   max-height: 300px;
+//   overflow-y: auto;
+//   overflow-x: hidden;
+//   ul {
+//     padding: 0;
+//   }
+// }
+
+// .send-message {
+//   display: none;
+// }
+

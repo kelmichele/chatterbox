@@ -1,0 +1,5 @@
+<ul id="conversations-list">
+	<% conversations_windows.each do |conversation| %>
+	  <%= render partial: 'conversations/conversation', locals: { conversation: conversation, user: current_or_guest_user } %>
+	<% end %>
+</ul>
