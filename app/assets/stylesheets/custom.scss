@@ -160,12 +160,11 @@ a:hover {text-decoration: none;}
 .message-msg small.stamp, .note-msg small.stamp {color: red; font-size: 10px;}
 
 // .customer-side .pers-chat,.livechat-box,
-.conversation-window, .new_chat_window, .conversation  {
+.conversation-window, .new_chat_window  {
   .panel-default {
     // width: 275px;
     // min-height: 30px;
     // position: fixed;
-    // bottom: 0px;
     // right: 15px;
     position: relative;
     z-index: 101;
@@ -191,7 +190,7 @@ a:hover {text-decoration: none;}
       &:hover {opacity: .7;}
     }
 
-    &.panel-success {
+    &.panel-success {background-color: #dff0d8;
       .panel-heading {background-color: #dff0d8; }
       a {color: $dark; }
     }
@@ -201,7 +200,8 @@ a:hover {text-decoration: none;}
 }
 
 // .customer-side .livechat-box,
-.conversation-window, .new_chat_window, .conversation  {
+// .conversation-window, .new_chat_window, .conversation
+.livechat-box {
   width: 320px;
   min-height: 30px;
   position: fixed;
@@ -218,6 +218,11 @@ a:hover {text-decoration: none;}
   list-style-type: none;
   a {color: white;}
   .chat-icon {width: 20px; height:auto; margin-right: 3px; margin-bottom: 3px;}
+
+  &.panel-success {background-color: #dff0d8;
+      .panel-heading {background-color: #dff0d8; }
+      a {color: $dark; }
+    }
 }
 
 
