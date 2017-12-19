@@ -160,20 +160,26 @@ a:hover {text-decoration: none;}
 .message-msg small.stamp, .note-msg small.stamp {color: red; font-size: 10px;}
 
 .customer-side .pers-chat .panel-default {
-  width: 275px;
-  min-height: 30px;
-  position: fixed;
-  bottom: 0px;
-  right: 15px;
-  z-index: 100;
+  // width: 275px;
+  // min-height: 30px;
+  // position: fixed;
+  // bottom: 0px;
+  // right: 15px;
+  position: relative;
+  z-index: 101;
   margin-bottom: 0;
+  border:0;
 
   .panel-body{padding: 5px;}
 
   a {color: white;}
   .chat-icon {width: 20px; height:auto; margin-right: 3px; margin-bottom: 3px;}
 
-  .panel-heading {background-color: darken($blue, 25%);text-align: center;color:white;padding: 5px 6px;
+  .panel-heading {background-color: darken($blue, 25%);
+    text-align: center;
+    color:white;
+    padding: 5px 6px 8px;
+    border: none;
     &:hover a {color: rgba(white, .7);}
   }
   .btn.exp {font-weight: bold; margin-left: 25px;}
@@ -188,6 +194,31 @@ a:hover {text-decoration: none;}
     a {color: $dark; }
   }
 }
+
+.customer-side .livechat-box {
+  width: 275px;
+  min-height: 30px;
+  position: fixed;
+  bottom: 0px;
+  right: 15px;
+  z-index: 100;
+  margin-bottom: 0;
+  border-radius: 4px;
+  background-color: darken($blue, 25%);
+  text-align: center;
+  color:white;
+  padding-top: 5px;
+  border: 1px solid #ddd;
+  a {color: white;}
+  .chat-icon {width: 20px; height:auto; margin-right: 3px; margin-bottom: 3px;}
+}
+
+
+
+
+
+
+
 
 
 span.off, span.on {width: 6px; height: 6px; border-radius: 50%; display: inline-block; background-color: green; vertical-align: middle; margin-left: 2px;}

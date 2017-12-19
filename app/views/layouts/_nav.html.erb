@@ -1,5 +1,10 @@
 <li class="nav-li"><%= link_to 'Home', root_path, class: 'nav-link' %></li>
-<li class="nav-li"><%= link_to 'Chat', chatroom_path, class: 'nav-link' %></li>
+<li class="nav-li">
+	<% unless user_signed_in? && current_user.admin? %>
+		<%= link_to 'Chat', chatroom_path, class: 'nav-link' %></li>
+	<% else %>
+		<%= link_to 'Chat', admin_chat_path, class: 'nav-link' %></li>
+	<% end %>
 <li class="nav-li"><%= link_to 'Support', support_path, class: 'nav-link' %></li>
 
 <% if user_signed_in? %>

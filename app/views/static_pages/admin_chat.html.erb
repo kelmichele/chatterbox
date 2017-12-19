@@ -1,27 +1,29 @@
 <div class="full" style="background-color: #f2f2f2;">
   <div class="wrap <% unless user_signed_in? && current_user.admin? %> customer-side<% end %>">
 
-    <!-- <div class="col-md-6 col-md-offset-1"> -->
-    <div class="livechat-box">
-      <% @users.each do |user| %>
-        <%= link_to 'Online: Chat With Us', conversations_path(user_id: user), remote: true, method: :post  %>
+    <div class="col-md-6 col-md-offset-1">
+      <h3><%= Conversation.all.count %></h3>
+      <p>Close: <%= @closed_line.count %></p>
+      <p>Open: <%= @open_line.count %></p>
 
-      <% end %>
 
       <ul id="conversations-list">
         <% @conversations.each do |conversation| %>
+          <% if conversation.messages.count > 0 %>
             <%= render 'conversations/conversation', conversation: conversation, user: current_or_guest_user %>
+          <% end %>
         <% end %>
       </ul>
     </div>
 
-<!--     <div class="col-md-3">
+    <div class="col-md-3">
       <div class="panel panel-primary text-center">
         <div class="panel-heading">
           <h3 class="panel-title">Chat With Us</h3>
         </div>
         <div class="panel-body">
           <ul>
+            <!-- <li><%= link_to boss_admin.name, conversations_path(user_id: boss_admin), remote: true, method: :post %></li> -->
             <% @users.each do |user| %>
               <br><li><%= link_to user.name, conversations_path(user_id: user), remote: true, method: :post %></li>
             <% end %>
@@ -29,9 +31,6 @@
         </div>
       </div>
     </div>
- -->
+
   </div>
 </div>
-
-
-
